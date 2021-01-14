@@ -1,29 +1,17 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Tetris Game JS</title>
-    <style>
-        #score{
-            display: inline-block;
-        }
-        div{
-            font-size: 25px;
-            font-weight: bold;
-            font-family: monospace;
-            text-align: center;
-        }
-        canvas{
-            display: block;
-            margin:0 auto;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Generator</title>
+    <link rel="stylesheet" href="style.css">
+   
 </head>
 <body>
-   <div>This Game Was Created By <a target="_blank" href="https://www.youtube.com/c/codeexplained">Code Explained</a></div><br>
-    <canvas id="tetris" width="200" height="400"></canvas>
-    <div>
-        Score : <div id="score">0</div>
+    <div class="container">
+        <button id="btn">Click me, I'm a Quote!</button>
+        <div id="output">Press the button to generate a Quote!</div>
     </div>
-    <script src="tetrominoes.js"></script>
-    <script src="tetris.js"></script>
+    <script src="javascript.js"></script>
 </body>
 </html>
