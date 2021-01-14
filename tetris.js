@@ -1,17 +1,16 @@
-const cvs = document.getElementById("tetris");
+const cvs = document.getElementById("tetris"); //
 const ctx = cvs.getContext("2d");
 const scoreElement = document.getElementById("score");
 
 const ROW = 20;
 const COL = COLUMN = 10;
-const SQ = squareSize = 20;
+const SQ = squareSize = 40;
 const VACANT = "WHITE"; // color of an empty square
 
 // draw a square
 function drawSquare(x,y,color){
     ctx.fillStyle = color;
     ctx.fillRect(x*SQ,y*SQ,SQ,SQ);
-
     ctx.strokeStyle = "BLACK";
     ctx.strokeRect(x*SQ,y*SQ,SQ,SQ);
 }
@@ -40,7 +39,7 @@ drawBoard();
 // the pieces and their colors
 
 const PIECES = [
-    [Z,"red"],
+    [Z,"Red"],
     [S,"green"],
     [T,"yellow"],
     [O,"blue"],
@@ -48,7 +47,6 @@ const PIECES = [
     [I,"cyan"],
     [J,"orange"]
 ];
-
 // generate random pieces
 
 function randomPiece(){

@@ -1,4 +1,4 @@
-const I = [
+const I = [ //constant arrays para di nagagalaw ang data nya
 	[
 		[0, 0, 0, 0],
 		[1, 1, 1, 1],
@@ -25,7 +25,7 @@ const I = [
 	]
 ];
 
-const J = [
+const J = [ 
 	[
 		[1, 0, 0],
 		[1, 1, 1],
@@ -103,7 +103,7 @@ const S = [
 	]
 ];
 
-const T = [
+const T = [ 
 	[
 		[0, 1, 0],
 		[1, 1, 1],
