@@ -1,3 +1,7 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
 #score{
     position: relative;
     margin-top: -20px !important;
@@ -6,7 +10,7 @@
 
 }
 div{
-    font-size: 25px;
+    font-size: 50px;
     font-weight: bold;
     font-family: monospace;
     text-align: center;
@@ -25,4 +29,10 @@ canvas{
 }
 #tetris{
     margin-top: 10px;
+}
+.text-center{
+    background-image: linear-gradient(to right,gray,purple,orange,red,blue);
+}
+h1{
+    width: 100%!important;
 }

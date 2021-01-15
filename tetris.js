@@ -11,7 +11,7 @@ const VACANT = "WHITE"; // color of an empty square
 function drawSquare(x,y,color){
     ctx.fillStyle = color;
     ctx.fillRect(x*SQ,y*SQ,SQ,SQ);
-    ctx.strokeStyle = "BLACK";
+    ctx.strokeStyle = "White";
     ctx.strokeRect(x*SQ,y*SQ,SQ,SQ);
 }
 
@@ -62,22 +62,23 @@ function Piece(tetromino,color){
     this.tetromino = tetromino;
     this.color = color;
     
-    this.tetrominoN = 0; // we start from the first pattern
+    this.tetrominoN = 0; // we start from the first pattern, start sa pinaka unang pattern ng pieces natin o yong array ng tetrominoes
     this.activeTetromino = this.tetromino[this.tetrominoN];
     
-    // we need to control the pieces
+    // we need to control the pieces //position ng current tetromino sa labas ng board
     this.x = 3;
     this.y = -2;
 }
 
 // fill function
 
-Piece.prototype.fill = function(color){
+Piece.prototype.fill = function(color){ //dito na fifill yong mga 1 sa tetriminoes pattern natin
     for( r = 0; r < this.activeTetromino.length; r++){
         for(c = 0; c < this.activeTetromino.length; c++){
             // we draw only occupied squares
             if( this.activeTetromino[r][c]){
-                drawSquare(this.x + c,this.y + r, color);
+                drawSquare(this.x + c,this.y + r, color); //gamit yong draw function magkakakulay yon current piece na nagenerate gamit yong random piece generator natin
+                                                         // base don kung saan may mga 1 at ififill kung ano kulay kapartner ex.Z,red
             }
         }
     }
@@ -85,24 +86,24 @@ Piece.prototype.fill = function(color){
 
 // draw a piece to the board
 
-Piece.prototype.draw = function(){
+Piece.prototype.draw = function(){//ito naman yong nag ddraw ng tetromino
     this.fill(this.color);
 }
 
 // undraw a piece
 
 
-Piece.prototype.unDraw = function(){
+Piece.prototype.unDraw = function(){ //Fill ng vacant o yong nagbubura ng existing tetromino
     this.fill(VACANT);
 }
 
 // move Down the piece
 
 Piece.prototype.moveDown = function(){
-    if(!this.collision(0,1,this.activeTetromino)){
-        this.unDraw();
-        this.y++;
-        this.draw();
+    if(!this.collision(0,1,this.activeTetromino)){//ito yong funcction na naglolock sa tetronimo pag may tinamaan na sya pababa, future coordinate yong 0,1
+        this.unDraw(); //buburahin yong na draw na tetronimo
+        this.y++;       //mag iincrement ng position ng y para bumababa
+        this.draw();    // iddraw nya yong current titronimo
     }else{
         // we lock the piece and generate a new one
         this.lock();
@@ -113,19 +114,19 @@ Piece.prototype.moveDown = function(){
 
 // move Right the piece
 Piece.prototype.moveRight = function(){
-    if(!this.collision(1,0,this.activeTetromino)){
-        this.unDraw();
-        this.x++;
-        this.draw();
+    if(!this.collision(1,0,this.activeTetromino)){//ito yong funcction na nagpprevent sa tetromino pag may tinamaan na sya sa right, future coordinate yong 1,0
+        this.unDraw();//buburahin yong na draw na tetronimo
+        this.x++; //mag iincrement ng position ng x para pumunta sa kanan
+        this.draw();  // iddraw nya yong current titronimo
     }
 }
 
 // move Left the piece
 Piece.prototype.moveLeft = function(){
-    if(!this.collision(-1,0,this.activeTetromino)){
-        this.unDraw();
-        this.x--;
-        this.draw();
+    if(!this.collision(-1,0,this.activeTetromino)){//ito yong funcction na nagpprevent sa tetromino pag may tinamaan na sya sa left, future coordinate yong -1,0
+        this.unDraw(); //buburahin yong na draw na tetronimo
+        this.x--;   //mag iincrement ng position ng x para pumunta sa kaliwa
+        this.draw();  // iddraw nya yong current titronimo
     }
 }
 
@@ -268,22 +269,3 @@ function drop(){
 }
 
 drop();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
