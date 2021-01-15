@@ -165,9 +165,11 @@ Piece.prototype.lock = function(){
             }
             // pieces to lock on top = game over
             if(this.y + r < 0){
-                alert("Game Over");
-                // stop request animation frame
                 gameOver = true;
+                // stop request animation frame
+             if (confirm('You lost. Press ok to restart.')) {
+                      window.location = '/index.html'
+                    }
                 break;
             }
             // we lock the piece
